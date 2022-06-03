@@ -42,6 +42,8 @@ public class PlayerMoveMobile : MonoBehaviour
         {
             Jump();
         }
+
+        Flip();
     }
 
     public void SetMoveLeft(bool moveleft)
@@ -103,5 +105,21 @@ public class PlayerMoveMobile : MonoBehaviour
         }
 
         rb.velocity = new Vector2(rb.velocity.x, forceY);
+    }
+
+    private void Flip()
+    {
+        if (moveLeft)
+        {
+            Vector3 scale = transform.localScale;
+            scale.x = -1f;
+            transform.localScale = scale;
+        }
+        if (moveRight)
+        {
+            Vector3 scale = transform.localScale;
+            scale.x = 1f;
+            transform.localScale = scale;
+        }
     }
 }
