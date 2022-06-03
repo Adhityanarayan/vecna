@@ -42,7 +42,7 @@ public class Player : MonoBehaviour
 
     private void FixedUpdate()
     {
-        rb.velocity = new Vector2(rb.velocity.x * moveSpeed, rb.velocity.y);
+        rb.velocity = new Vector2(horizontal * moveSpeed , rb.velocity.y);
     }
 
     private void Flip()
