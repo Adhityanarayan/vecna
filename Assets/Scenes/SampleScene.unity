@@ -502,7 +502,7 @@ GameObject:
   m_Layer: 0
   m_Name: BoxSpwaner
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -533,7 +533,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af25d4dc16839c54e9e08899ccfa18f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boxPrefab: {fileID: 0}
+  boxPrefab: {fileID: 3955227185188690772, guid: 74e99f248623a24449c33680fbc403b9, type: 3}
   respawnTime: 1
 --- !u!1 &1116462877
 GameObject:
@@ -1191,6 +1191,14 @@ PrefabInstance:
     - target: {fileID: 6625611781145613088, guid: 5a87cc5213ddfa649ba336dd12dfd35a, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 6625611781145613098, guid: 5a87cc5213ddfa649ba336dd12dfd35a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6625611781145613099, guid: 5a87cc5213ddfa649ba336dd12dfd35a, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6625611781145613100, guid: 5a87cc5213ddfa649ba336dd12dfd35a, type: 3}
       propertyPath: m_RootOrder
