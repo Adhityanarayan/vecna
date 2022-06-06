@@ -13,7 +13,6 @@ public class PlayerMoveMobile : MonoBehaviour
 
     private bool moveLeft, moveRight, isJumping;
     private bool isGrounded;
-    private bool isBoxes;
     public Transform groundCheck;
     public float gndCheckRadius = 0.2f;
     public LayerMask whatIsGround;
@@ -40,10 +39,6 @@ public class PlayerMoveMobile : MonoBehaviour
             MoveRight();
         }
         if (isJumping && isGrounded)
-        {
-            Jump();
-        }
-        if (isJumping && isBoxes)
         {
             Jump();
         }
@@ -125,14 +120,6 @@ public class PlayerMoveMobile : MonoBehaviour
             Vector3 scale = transform.localScale;
             scale.x = 1f;
             transform.localScale = scale;
-        }
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("Boxes"))
-        {
-            isBoxes = true;
         }
     }
 }
