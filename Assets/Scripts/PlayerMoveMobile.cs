@@ -16,7 +16,9 @@ public class PlayerMoveMobile : MonoBehaviour
     private bool isBoxes;
     public Transform groundCheck;
     public float gndCheckRadius = 0.2f;
+    public float boxCheckRadius = 0.4f;
     public LayerMask whatIsGround;
+    public LayerMask whatIsBox;
 
     void Start()
     {
@@ -27,6 +29,7 @@ public class PlayerMoveMobile : MonoBehaviour
     private void Update()
     {
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, gndCheckRadius, whatIsGround);
+        isBoxes = Physics2D.OverlapCircle(groundCheck.position, boxCheckRadius, whatIsBox);
     }
 
     void FixedUpdate()
@@ -125,14 +128,6 @@ public class PlayerMoveMobile : MonoBehaviour
             Vector3 scale = transform.localScale;
             scale.x = 1f;
             transform.localScale = scale;
-        }
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("Boxes"))
-        {
-            isBoxes = true;
         }
     }
 }
