@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 746273214}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.63, z: 0}
+  m_LocalPosition: {x: 0, y: 0.735, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -305,6 +305,9 @@ MonoBehaviour:
   whatIsGround:
     serializedVersion: 2
     m_Bits: 64
+  whatIsBox:
+    serializedVersion: 2
+    m_Bits: 128
 --- !u!114 &6625611781145613098
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -341,7 +344,7 @@ MonoBehaviour:
   boxHolderPoint: {fileID: 746273215}
   grabDetect: {fileID: 8728455092118987273}
   rayDist: 2
-  throwForce: 8
+  throwForce: 6
 --- !u!1 &6625611782489679537
 GameObject:
   m_ObjectHideFlags: 0
