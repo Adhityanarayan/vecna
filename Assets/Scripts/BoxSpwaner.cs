@@ -29,7 +29,6 @@ public class BoxSpwaner : MonoBehaviour
     {
         GameObject box = Instantiate(boxPrefab) as GameObject;
         box.transform.position = new Vector2(Random.Range(-screenBounds.x, screenBounds.x), screenBounds.y + 1);
-        
     }
     IEnumerator SpawnCoroutine()
     {
