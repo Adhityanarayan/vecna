@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 746273214}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.59, z: 0}
+  m_LocalPosition: {x: 0, y: 1.34, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -348,7 +348,8 @@ MonoBehaviour:
   boxHolderPoint: {fileID: 746273215}
   grabDetect: {fileID: 8728455092118987273}
   rayDist: 2
-  throwForce: 6
+  throwForce: 3
+  isGrabbed: 0
 --- !u!1 &6625611782489679537
 GameObject:
   m_ObjectHideFlags: 0

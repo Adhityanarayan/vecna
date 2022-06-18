@@ -11,7 +11,7 @@ public class BoxGrab : MonoBehaviour
     //public LayerMask notGrabbable;
 
     private RaycastHit2D hit;
-    private bool isGrabbed;
+    public bool isGrabbed;
 
     private void Update()
     {
