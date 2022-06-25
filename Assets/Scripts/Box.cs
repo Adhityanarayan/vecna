@@ -8,6 +8,8 @@ public class Box : MonoBehaviour
     private BoxCollider2D boxCollider;
     private Vector2 screenBounds;
 
+    public BoxGrab boxGrab;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -17,7 +19,7 @@ public class Box : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (!(boxGrab.isGrabbed) && collision.gameObject.CompareTag("Player"))
         {
             boxCollider.isTrigger = false;
         }

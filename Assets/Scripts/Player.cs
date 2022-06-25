@@ -15,6 +15,7 @@ public class Player : MonoBehaviour
     public Transform groundCheck;
     public float gndCheckRadius = 0.2f;
     public LayerMask whatIsGround;
+    public LayerMask whatIsBox;
 
     private void Start()
     {
@@ -27,6 +28,7 @@ public class Player : MonoBehaviour
         horizontal = Input.GetAxisRaw("Horizontal");
 
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, gndCheckRadius, whatIsGround);
+        isBoxes = Physics2D.OverlapCircle(groundCheck.position, gndCheckRadius, whatIsBox);
 
         //jump higher when long press
         if(Input.GetButtonDown("Jump") && isGrounded)
@@ -59,14 +61,6 @@ public class Player : MonoBehaviour
             Vector3 scale = transform.localScale;
             scale.x *= -1f;
             transform.localScale = scale;
-        }
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("Boxes"))
-        {
-            isBoxes = true;
         }
     }
 }
