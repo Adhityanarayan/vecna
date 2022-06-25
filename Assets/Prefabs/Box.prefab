@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3955227185188690793}
   - component: {fileID: 3955227185188690774}
   - component: {fileID: 3955227185188690775}
-  - component: {fileID: 8471562835815712295}
+  - component: {fileID: 732027421564914650}
   m_Layer: 0
   m_Name: Box
   m_TagString: Boxes
@@ -29,11 +29,11 @@ Transform:
   m_GameObject: {fileID: 3955227185188690772}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.3245576, y: 2.39, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.64, y: 0.64, z: 0.64}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &3955227185188690793
 SpriteRenderer:
@@ -102,8 +102,8 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 2
-  m_Material: {fileID: 6200000, guid: 9b197d76a00a45c4aa88fae93ada36e7, type: 2}
+  m_GravityScale: 0.5
+  m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
@@ -134,7 +134,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &8471562835815712295
+--- !u!114 &732027421564914650
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -146,3 +146,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 389c62c55409b8e428e5452870670c06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  boxVariantPrefab: {fileID: 4613009890404870265, guid: 6a7263fe9aecdaa4ba5e0a66d83d7158, type: 3}

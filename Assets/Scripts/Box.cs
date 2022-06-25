@@ -4,10 +4,17 @@ using UnityEngine;
 
 public class Box : MonoBehaviour
 {
+    public GameObject boxVariantPrefab;
+    //public Transform boxHolderPoint;
     private Rigidbody2D rb;
-    private BoxCollider2D boxCollider;
+    BoxCollider2D boxCollider;
     private Vector2 screenBounds;
-
+    //public Transform t;
+    private Player player;
+    private void Update()
+    {
+        
+    }
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -20,7 +27,17 @@ public class Box : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             boxCollider.isTrigger = false;
+            //rb.isKinematic = true;
+            //transform.position = player.BoxHolderPoint.position;
+            Destroy(gameObject);
+            player.isBoxSpawn = true;
+            SpawnBox();
         }
+    }
+    private void SpawnBox()
+    {
+        GameObject box = Instantiate(boxVariantPrefab) as GameObject;
+        box.transform.position = player.boxHolderPoint.position;
     }
 
     private void FixedUpdate()

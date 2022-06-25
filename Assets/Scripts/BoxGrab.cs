@@ -15,7 +15,7 @@ public class BoxGrab : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.P))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             if (!isGrabbed)
             {

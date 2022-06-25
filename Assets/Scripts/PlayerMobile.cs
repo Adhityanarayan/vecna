@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class PlayerMobile : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
+public class PlayerMobile : MonoBehaviour
 {
     private PlayerMoveMobile playerMoveMobile;
 
@@ -11,27 +11,30 @@ public class PlayerMobile : MonoBehaviour, IPointerUpHandler, IPointerDownHandle
     {
         playerMoveMobile = GameObject.Find("Player").GetComponent<PlayerMoveMobile>();
     }
-    public void OnPointerDown(PointerEventData data)
+    private void Update()
     {
-        if(gameObject.name == "LeftButton")
+        if (Input.touchCount > 0)
         {
-            Debug.Log("Left");
-            playerMoveMobile.SetMoveLeft(true);
+            Touch touch = Input.GetTouch(0);
+            if (touch.position.x < Screen.width / 2)
+            {
+                //Debug.Log("Left");
+                playerMoveMobile.SetMoveLeft(true);
+            }
         }
-        if(gameObject.name == "RightButton")
+        if (Input.touchCount > 0)
         {
-            Debug.Log("Right");
-            playerMoveMobile.SetMoveLeft(false);
+            Touch touch = Input.GetTouch(0);
+            if (touch.position.x > Screen.width / 2)
+            {
+                //Debug.Log("Right");
+                playerMoveMobile.SetMoveLeft(false);
+            }
         }
-        if(gameObject.name == "JumpButton")
+        if( Input.touchCount  == 0)
         {
-            Debug.Log("Jump");
-            playerMoveMobile.SetJump(true);
+            playerMoveMobile.StopMoving();
         }
     }
 
-    public void OnPointerUp(PointerEventData data)
-    {
-        playerMoveMobile.StopMoving();
-    }
 }

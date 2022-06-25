@@ -34,7 +34,7 @@ public class TargetSpawner : MonoBehaviour
 
     private int randomNumber()
     {
-        return Random.Range(5, 3);
+        return (int)Random.Range(screenBounds.y/2, screenBounds.y/2);
     }
 
 }
