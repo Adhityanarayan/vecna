@@ -9,13 +9,15 @@ public class PlayerMoveMobile : MonoBehaviour
     public float moveSpeed = 2f;
     public float maxVelocity = 4f;
     public float maxVelocityY = 16f;
-    
-
-    private bool moveLeft, moveRight;
+    public float jumpForce = 14f;
+    private bool isGrounded;
+    private bool isBoxes;
+    private bool moveLeft, moveRight, isJumping;
     public Transform groundCheck;
     public float gndCheckRadius = 0.2f;
     public LayerMask whatIsGround;
-
+    public float boxCheckRadius = 0.4f;
+    public LayerMask whatIsBox;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -24,7 +26,8 @@ public class PlayerMoveMobile : MonoBehaviour
 
     private void Update()
     {
-    
+        isGrounded = Physics2D.OverlapCircle(groundCheck.position, gndCheckRadius, whatIsGround);
+        isBoxes = Physics2D.OverlapCircle(groundCheck.position, boxCheckRadius, whatIsBox);
         if (moveLeft)
         {
             MoveLeft();
@@ -35,9 +38,19 @@ public class PlayerMoveMobile : MonoBehaviour
             MoveRight();
             FlipRight();
         }
-        
+        if (isJumping && isGrounded)
+        {
+            Jump();
+        }
+        if (isJumping && isBoxes)
+        {
+            Jump();
+        }
     }
-
+    public void SetJump(bool isJumping)
+    {
+        this.isJumping = isJumping;
+    }
     public void SetMoveLeft(bool moveleft)
     {
         //Debug.Log("setmoveLeft");
@@ -47,7 +60,7 @@ public class PlayerMoveMobile : MonoBehaviour
 
     public void StopMoving()
     {
-        moveLeft = moveRight = false;
+        moveLeft = moveRight = isJumping = false;
         //anim.SetBool("Walk", false);
     }
     public void MoveLeft()
@@ -79,6 +92,19 @@ public class PlayerMoveMobile : MonoBehaviour
 
         //rb.AddForce(new Vector2(forceX, 0));
         rb.velocity = new Vector2(forceX, rb.velocity.y);
+    }
+    public void Jump()
+    {
+        float forceY = 0f;
+        float vel = Mathf.Abs(rb.velocity.y);
+
+        if (vel < maxVelocityY)
+        {
+            forceY = jumpForce;
+            //anim
+        }
+
+        rb.velocity = new Vector2(rb.velocity.x, forceY);
     }
     private void Flip()
     {
