@@ -33,17 +33,17 @@ public class Player : MonoBehaviour
         if (Input.touchCount > 0)
         {
             Touch touch = Input.GetTouch(0);
-            if (touch.tapCount == 2)
-            {
-                //box.GetComponent<Rigidbody2D>().velocity = new Vector2(transform.localScale.x, 1f);
-                if (isSelected)
-                {
-                    isSelected = false;
-                    box.transform.position = grab.position;
-                }
-                isBoxSpawn = true;
-                box.isStatic = false;
-            }
+            //if (touch.tapCount == 2)
+            //{
+            //    //box.GetComponent<Rigidbody2D>().velocity = new Vector2(transform.localScale.x, 1f);
+            //    if (isSelected)
+            //    {
+            //        isSelected = false;
+            //        box.transform.position = grab.position;
+            //    }
+            //    isBoxSpawn = true;
+            //    box.isStatic = false;
+            //}
             if(touch.tapCount == 3)
             {
                 hit = Physics2D.Raycast(ClimbDetect.position, Vector2.right * transform.localScale.x, rayDist);
@@ -75,5 +75,15 @@ public class Player : MonoBehaviour
         }       
         canHold = false;
         isBoxSpawn = false;
+    }
+    public void DropBox()
+    {
+        if (isSelected)
+        {
+            isSelected = false;
+            box.transform.position = grab.position;
+        }
+        isBoxSpawn = true;
+        box.isStatic = false;
     }
 }
