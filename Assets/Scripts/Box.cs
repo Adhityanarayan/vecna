@@ -19,10 +19,9 @@ public class Box : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            boxCollider.isTrigger = false;
+            Destroy(gameObject);
         }
     }
-
     private void FixedUpdate()
     {
         if(rb.transform.position.y < -screenBounds.y - 1)
