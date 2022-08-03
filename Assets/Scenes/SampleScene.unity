@@ -241,7 +241,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 77.25, y: 38}
+  m_AnchoredPosition: {x: 77.25, y: 498}
   m_SizeDelta: {x: 32.13, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &151984967
@@ -1357,7 +1357,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 29, y: 38}
+  m_AnchoredPosition: {x: 29, y: 498}
   m_SizeDelta: {x: 31.01, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2024879048
@@ -1597,9 +1597,29 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1845578996799566098, guid: 5a87cc5213ddfa649ba336dd12dfd35a, type: 3}
+      propertyPath: boxPrefab
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1845578996799566098, guid: 5a87cc5213ddfa649ba336dd12dfd35a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6625611781145613088, guid: 5a87cc5213ddfa649ba336dd12dfd35a, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 6625611781145613098, guid: 5a87cc5213ddfa649ba336dd12dfd35a, type: 3}
+      propertyPath: jumpForce
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 6625611781145613098, guid: 5a87cc5213ddfa649ba336dd12dfd35a, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6625611781145613098, guid: 5a87cc5213ddfa649ba336dd12dfd35a, type: 3}
+      propertyPath: maxVelocityY
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 6625611781145613099, guid: 5a87cc5213ddfa649ba336dd12dfd35a, type: 3}
       propertyPath: joystick

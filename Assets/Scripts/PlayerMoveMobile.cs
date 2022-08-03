@@ -100,16 +100,20 @@ public class PlayerMoveMobile : MonoBehaviour
 
     public void Jump()
     {
-        float forceY = 0f;
-        float vel = Mathf.Abs(rb.velocity.y);
-
-        if (vel < maxVelocityY)
+        if(rb.velocity.y == 0)
         {
-            forceY = jumpForce;
-            //anim
+            rb.velocity = Vector2.up * jumpForce;
         }
+        //float forceY = 0f;
+        //float vel = Mathf.Abs(rb.velocity.y);
 
-        rb.velocity = new Vector2(rb.velocity.x, forceY);
+        //if (vel < maxVelocityY)
+        //{
+        //    forceY = jumpForce;
+        //    //anim
+        //}
+
+        //rb.velocity = new Vector2(rb.velocity.x, forceY);
     }
 
     private void Flip()

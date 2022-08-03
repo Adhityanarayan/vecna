@@ -15,7 +15,7 @@ public class Player : MonoBehaviour
     public float jumpForce = 16f;
     public float horizontal { get; private set; }
     public Transform groundCheck;
-    public float gndCheckRadius = 0.2f;
+    public float gndCheckRadius = 0.3f;
     public LayerMask whatIsGround;
 
     private void Start()

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class PlayerMobile : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
+public class PlayerMobile : MonoBehaviour, IPointerUpHandler, IPointerDownHandler, IPointerClickHandler
 {
     private PlayerMoveMobile playerMoveMobile;
 
@@ -23,15 +23,21 @@ public class PlayerMobile : MonoBehaviour, IPointerUpHandler, IPointerDownHandle
             Debug.Log("Right");
             playerMoveMobile.SetMoveLeft(false);
         }
-        if(gameObject.name == "JumpButton")
+        if (gameObject.name == "JumpButton")
         {
             Debug.Log("Jump");
             playerMoveMobile.SetJump(true);
         }
     }
 
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        
+    }
+
     public void OnPointerUp(PointerEventData data)
     {
         playerMoveMobile.StopMoving();
     }
+
 }
