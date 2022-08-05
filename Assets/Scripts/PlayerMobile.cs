@@ -6,14 +6,18 @@ using UnityEngine.EventSystems;
 public class PlayerMobile : MonoBehaviour, IPointerUpHandler, IPointerDownHandler, IPointerClickHandler
 {
     private PlayerMoveMobile playerMoveMobile;
+    private BoxGrab boxGrab;
 
     private void Start()
     {
         playerMoveMobile = GameObject.Find("Player").GetComponent<PlayerMoveMobile>();
+        boxGrab = GameObject.Find("Player").GetComponent<BoxGrab>();
     }
     public void OnPointerDown(PointerEventData data)
     {
-        if(gameObject.name == "LeftButton")
+        //use in canvas button OnClick functionality for click(Down&Up)
+
+        if (gameObject.name == "LeftButton")
         {
             Debug.Log("Left");
             playerMoveMobile.SetMoveLeft(true);
@@ -28,6 +32,11 @@ public class PlayerMobile : MonoBehaviour, IPointerUpHandler, IPointerDownHandle
             Debug.Log("Jump");
             playerMoveMobile.SetJump(true);
         }
+        //if (gameObject.name == "DropButton")
+        //{
+        //    Debug.Log("Pick and Drop");
+        //    boxGrab.SetpickAndDrop(true);
+        //}
     }
 
     public void OnPointerClick(PointerEventData eventData)
@@ -38,6 +47,7 @@ public class PlayerMobile : MonoBehaviour, IPointerUpHandler, IPointerDownHandle
     public void OnPointerUp(PointerEventData data)
     {
         playerMoveMobile.StopMoving();
+        //boxGrab.StoppickAndDrop();
     }
 
 }
