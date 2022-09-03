@@ -18,10 +18,14 @@ public class Player : MonoBehaviour
     public float gndCheckRadius = 0.3f;
     public LayerMask whatIsGround;
 
+    private BoxGrab boxGrab;
+    private Collider2D colli2D;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         isFacingRight = true;
+        boxGrab = FindObjectOfType<BoxGrab>();
     }
 
     private void Update()
@@ -86,6 +90,33 @@ public class Player : MonoBehaviour
         if (collision.gameObject.CompareTag("Boxes"))
         {
             isBoxes = true;
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (!(boxGrab.isGrabbed) && collision.gameObject.CompareTag("Boxes"))
+        {
+            colli2D = collision;
+            //colli2D.isTrigger = false;
+            boxGrab.directGrab = true;
+            boxGrab.isGrabbed = true;
+            colli2D.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
+            colli2D.transform.position = boxGrab.boxHolderPoint.position;
+            colli2D.transform.parent = boxGrab.boxHolderPoint;
+        }
+    }
+
+    public void DirectPick()
+    {
+        if (boxGrab.isGrabbed && boxGrab.directGrab == true)
+        {
+            colli2D.isTrigger = false;
+            boxGrab.directGrab = false;
+            boxGrab.isGrabbed = false;
+            colli2D.transform.position = boxGrab.boxDropPoint.position;
+            colli2D.transform.parent = null;
+            colli2D.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
         }
     }
 }
